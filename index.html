@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 1 Year Anniversary!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ffd1dc, #ffecb3, #e0f7fa);
+            color: #5a3e36;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Floating emoji hearts animation */
+        .hearts-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .heart-emoji {
+            position: absolute;
+            font-size: 24px;
+            opacity: 0.7;
+            animation: float 15s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 30px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            color: #ff6b6b;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .love-letter {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.2);
+            line-height: 1.8;
+            font-size: 1.2rem;
+            position: relative;
+            transition: transform 0.3s ease;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .love-letter:hover {
+            transform: translateY(-5px);
+        }
+
+        .letter-content {
+            white-space: pre-line;
+            text-align: justify;
+            position: relative;
+        }
+
+        .letter-content::before {
+            content: "💖";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            font-size: 30px;
+            opacity: 0.3;
+        }
+
+        .letter-content::after {
+            content: "💖";
+            position: absolute;
+            bottom: -10px;
+            right: -10px;
+            font-size: 30px;
+            opacity: 0.3;
+        }
+
+        .signature {
+            text-align: right;
+            margin-top: 30px;
+            font-style: italic;
+            font-weight: bold;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            color: #ff6b6b;
+            animation: glow 2s ease-in-out infinite alternate;
+            text-shadow: 0 0 5px #ff9a9e, 0 0 10px #ff6b6b;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px #ff9a9e, 0 0 10px #ff6b6b;
+            }
+            to {
+                text-shadow: 0 0 10px #ff9a9e, 0 0 20px #ff6b6b, 0 0 30px #ff6b6b;
+            }
+        }
+
+        .surprise-section {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .surprise-box {
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+            display: inline-block;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .surprise-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.4);
+        }
+
+        .surprise-box h2 {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .surprise-content {
+            display: none;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .photos-section {
+            margin-bottom: 50px;
+        }
+
+        .photos-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #ff6b6b;
+            margin-bottom: 30px;
+        }
+
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .photo-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            height: 500px;
+            background: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .photo-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .photo-placeholder {
+            font-size: 1.2rem;
+            color: #ff6b6b;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .photo-item i {
+            font-size: 3rem;
+            color: #ff9a9e;
+            margin-bottom: 15px;
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.2);
+        }
+
+        footer h2 {
+            font-size: 3rem;
+            color: #ff6b6b;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .love-letter {
+                padding: 20px;
+            }
+            
+            .photo-gallery {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts-container" id="heartsContainer"></div>
+    
+    <div class="container">
+        <header>
+            <h1>HAPPY 1 YEAR ANNIVERSARY BABY!! 💞🎉</h1>
+            <p>Celebrating 365 days of love, care and sweetnes...<3</p>
+        </header>
+        
+        <section class="love-letter">
+            <div class="letter-content">
+to the love of my life:
+ Here we are on 1 October, the day where i decided you to be the pair i always wanted and searched for my whole life
+ Oh my dear, you have no clue how precious this day is, This love story is something I don't want to forget or stop living in
+you changed me, you changed how i think, how i see things, and how i love
+ You eve, showed me how holy and sacred love can be, how beautiful it can be when it's the chosen one
+ I early im this relationship, i promised you that will stay with you, and yes i know we been through alot, i did alot of mistakes, i took alot of stupid decisions but... what is a human if they don't make mistakes, and apologies aren't apologies if we don't fix what we done, and I'm here writing this and saying that im sorry about everything I've ever done to you and I'm promising you that one day I'll show you hat I've learned from my mistakes and I'm asking you to not give up on me
+ I loved you since we we're just friends and i loved you and still now love you more nad more day by day
+ And here we are celebrating 365 day of love and happiness together 
+ and next uear will be better and better, will work on myself and you should too, so we can be the best version of oursleves
+ i ask you to be my love this year and the other and the other... and forever
+
+                                                                        with all of my love...
+            </div>
+            <div class="signature">Rihab ...♡⁠</div>
+        </section>
+        
+        <section class="surprise-section">
+            <div class="surprise-box" id="surpriseBox">
+                <h2><i class="fas fa-gift"></i> Surprise Box >:3!<i class="fas fa-gift"></i></h2>
+                <p>Click to reveal a sweet message!</p>
+                <div class="surprise-content" id="surpriseContent">
+                    <p id="surpriseText">I LOVE YOU SWEETHEART 💘💘</p>
+                </div>
+            </div>
+        </section>
+        
+<section class="photos-section">
+    <h2>my top 5 pics of you 😋</h2>
+    <div class="photo-gallery">
+        <div class="photo-item">
+            <img src="photos/pic-1.jpg" alt="Our beautiful memory 1">
+        </div>
+        <div class="photo-item">
+            <img src="photos/pic-2.jpg" alt="Our beautiful memory 2">
+        </div>
+        <div class="photo-item">
+            <img src="photos/pic-3.jpg" alt="Our beautiful memory 3">
+        </div>
+        <div class="photo-item">
+            <img src="photos/pic-4.jpg" alt="Our beautiful memory 4">
+        </div>
+        <div class="photo-item">
+            <img src="photos/pic-5.jpg" alt="Our beautiful memory 5">
+        </div>
+    </div>
+</section>
+        </section>
+        
+        <footer>
+            <h2>you are truly the best thing happened to my life &lt;3</h2>
+        </footer>
+    </div>
+
+    <script>
+        // Create floating emoji hearts
+        function createHearts() {
+            const heartsContainer = document.getElementById('heartsContainer');
+            const heartCount = 30;
+            const heartEmojis = ['💖', '💕', '💗', '💓', '💞', '💘', '❤️', '🧡', '💛', '💚', '💙', '💜'];
+            
+            for (let i = 0; i < heartCount; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart-emoji');
+                
+                // Random properties for each heart
+                const emoji = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+                const size = Math.random() * 30 + 20;
+                const left = Math.random() * 100;
+                const animationDuration = Math.random() * 20 + 10;
+                const animationDelay = Math.random() * 5;
+                
+                heart.textContent = emoji;
+                heart.style.fontSize = `${size}px`;
+                heart.style.left = `${left}vw`;
+                heart.style.animationDuration = `${animationDuration}s`;
+                heart.style.animationDelay = `${animationDelay}s`;
+                heart.style.opacity = Math.random() * 0.5 + 0.3;
+                
+                heartsContainer.appendChild(heart);
+            }
+        }
+        
+        // Surprise box functionality
+        const surpriseBox = document.getElementById('surpriseBox');
+        const surpriseContent = document.getElementById('surpriseContent');
+        const surpriseText = document.getElementById('surpriseText');
+        
+        const messages = [
+            "I LOVE YOU SWEETHEART 💘💘",
+            "pssss in case you never know... I LOVE YOUU💌💓",
+            "gues who's I'm in love badly, IT'S YOU BABY💕💕💕",
+            "ich liebe dich :3💞"
+        ];
+        
+        let messageIndex = 0;
+        
+        surpriseBox.addEventListener('click', function() {
+            if (surpriseContent.style.display === 'block') {
+                // Cycle to next message
+                messageIndex = (messageIndex + 1) % messages.length;
+                surpriseText.textContent = messages[messageIndex];
+                
+                // Add a little animation
+                surpriseContent.style.animation = 'none';
+                setTimeout(() => {
+                    surpriseContent.style.animation = 'fadeIn 0.5s ease';
+                }, 10);
+            } else {
+                // Show first message
+                surpriseText.textContent = messages[0];
+                surpriseContent.style.display = 'block';
+            }
+        });
+        
+        // Photo gallery interaction
+        const photoItems = document.querySelectorAll('.photo-item');
+        
+        photoItems.forEach(item => {
+            item.addEventListener('click', function() {
+                this.style.transform = 'scale(1.1)';
+                this.style.boxShadow = '0 20px 40px rgba(255, 107, 107, 0.4)';
+                
+                setTimeout(() => {
+                    this.style.transform = 'scale(1.05)';
+                    this.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.2)';
+                }, 300);
+            });
+        });
+        
+        // Initialize the page
+        window.addEventListener('DOMContentLoaded', function() {
+            createHearts();
+        });
+    </script>
+</body>
+</html>
